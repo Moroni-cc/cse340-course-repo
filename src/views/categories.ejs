@@ -3,11 +3,20 @@
         <h1>
             <%= title %>
         </h1>
+        <h2>Available Categories</h2>
+        <p>Browse our projects by their service category:</p>
         <ul>
-            <li>Environmental</li>
-            <li>Educational</li>
-            <li>Community Service</li>
-            <li>Health & Wellness</li>
+            <% if (categories && categories.length> 0) { %>
+                <% categories.forEach(category=> { %>
+                    <li>
+                        <strong>
+                            <%= category.name %>
+                        </strong>
+                    </li>
+                    <% }) %>
+                        <% } else { %>
+                            <li>No categories available at this time.</li>
+                            <% } %>
         </ul>
     </main>
     <%- include('partials/footer') %>

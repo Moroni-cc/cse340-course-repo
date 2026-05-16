@@ -1,0 +1,62 @@
+==========================================================
+TRANSCRIPT: COACHING SESSION - WEEK 01
+==========================================================
+STUDENT: Raul Moroni Capcha Cadillo
+COACH: Learning Coach and Software Mentor
+DATE: May 2026
+
+----------------------------------------------------------
+1. INTRODUCTION AND SETTING THE STAGE
+----------------------------------------------------------
+Coach: "Welcome! Just to be clear from the start, this is a coaching session, not a test. It is perfectly okay—and even encouraged—to say 'I don't know' or 'I made a mistake.' That's the fastest way we'll learn today."
+
+----------------------------------------------------------
+2. TOPIC 1: EXPRESS ROUTING (server.js)
+----------------------------------------------------------
+CODE SHARED:
+app.get('/', async (req, res) => {
+    const title = 'Home';
+    res.render('home', { title });
+});
+(Additional routes shared for /organizations, /projects, /categories)
+
+STUDENT COMMENTARY:
+Raul explained that he used the 'async' keyword proactively. While current routes render static templates, he set them up this way to prepare for future database queries, ensuring the code is ready for scaling without needing a refactor.
+
+----------------------------------------------------------
+3. TOPIC 2: JAVASCRIPT LANGUAGE PRINCIPLES (ESM)
+----------------------------------------------------------
+CODE SHARED:
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+STUDENT COMMENTARY:
+The discussion focused on reconstructing __dirname for compatibility with ES Modules (ESM). Raul highlighted the use of modern standards including constants, arrow functions, and async/await syntax.
+
+----------------------------------------------------------
+4. TOPIC 3: EJS PARTIALS AND PAGES
+----------------------------------------------------------
+CODE SHARED:
+<%- include('partials/header') %>
+<h1><%= title %></h1>
+<%- include('partials/footer') %>
+
+STUDENT COMMENTARY:
+Raul correctly identified the technical distinction for HTML escaping:
+- <%= : Escapes special characters for security to prevent XSS attacks.
+- <%- : Injects raw HTML, which is necessary for including partials correctly.
+
+----------------------------------------------------------
+5. TOPIC 4: FRONTEND CSS
+----------------------------------------------------------
+CODE SHARED:
+nav { position: sticky; backdrop-filter: blur(8px); }
+CSS Variables: var(--clr-border), var(--nav-h).
+Media Query: @media (max-width: 640px) { nav ul { overflow-x: auto; } }
+
+STUDENT COMMENTARY:
+The discussion covered the use of CSS Variables for global design maintenance and Flexbox for alignment. Raul implemented a horizontal scroll on mobile devices to ensure all navigation links remain accessible on smaller screens.
+
+==========================================================
+END OF SESSION
+==========================================================

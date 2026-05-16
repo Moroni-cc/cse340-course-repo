@@ -104,3 +104,7 @@ UNION ALL
 SELECT 'Categories', COUNT(*) FROM categories
 UNION ALL
 SELECT 'Project_Category_Links', COUNT(*) FROM project_categories;
+
+UPDATE organization SET logo_filename = 'brightfuture-logo.png' WHERE organization_id = 1;
+UPDATE organization SET logo_filename = 'greenharvest-logo.png' WHERE organization_id = 2;
+UPDATE organization SET logo_filename = 'unityserve-logo.png' WHERE organization_id = 3;

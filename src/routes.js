@@ -7,7 +7,8 @@ import {
     processLogout,
     requireLogin,
     showDashboard,
-    requireRole
+    requireRole,
+    showUsersPage
 } from './controllers/users.js';
 
 import { showHomePage } from './controllers/index.js';
@@ -86,5 +87,7 @@ router.get('/logout', processLogout);
 
 // Protected dashboard route
 router.get('/dashboard', requireLogin, showDashboard);
+// Admin users page
+router.get('/users', requireRole('admin'), showUsersPage);
 
 export default router;

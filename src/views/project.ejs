@@ -40,9 +40,26 @@
                             <li>No categories assigned.</li>
                             <% } %>
         </ul>
-        <% if (user && user.role_name==='admin' ) { %>
-            <a href="/assign-categories/<%= projectDetails.project_id %>">Edit Categories</a><br>
-            <a href="/edit-project/<%= projectDetails.project_id %>">Edit Project</a>
+
+        <% if (user) { %>
+            <section class="volunteer-section">
+                <% if (isVolunteering) { %>
+                    <p><strong>You are volunteering for this project.</strong></p>
+
+                    <form action="/project/<%= projectDetails.project_id %>/remove-volunteer" method="POST">
+                        <button type="submit">Remove me as volunteer</button>
+                    </form>
+                    <% } else { %>
+                        <form action="/project/<%= projectDetails.project_id %>/volunteer" method="POST">
+                            <button type="submit">Volunteer for this project</button>
+                        </form>
+                        <% } %>
+            </section>
             <% } %>
+
+                <% if (user && user.role_name==='admin' ) { %>
+                    <a href="/assign-categories/<%= projectDetails.project_id %>">Edit Categories</a><br>
+                    <a href="/edit-project/<%= projectDetails.project_id %>">Edit Project</a>
+                    <% } %>
     </main>
     <%- include('partials/footer') %>
